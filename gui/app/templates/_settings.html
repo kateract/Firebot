@@ -315,6 +315,26 @@
                 <b>Warning</b>: This is NOT the port used in the overlay URL (7473). If you absolutely need to change that port, please reach out to us on Discord or Twitter.
               </div>
             </div>
+            <div class="setting col-sm-6">
+              <div class="setting-heading">Serial Configuration</div>
+              <div class="setting-description">
+                Choose a serial port to send serial commands to.
+              </div>
+              <div class="dropdown options-customscript-dropdown"style="display: inline-block">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="dropdown-text">{{settings.getSerialPort()}}</span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="options-customscript">
+                    <li ng-repeat="port in serialPorts">
+                        <a href ng-click="settings.setSerialPort(port)">{{port.label}}</a>
+                    </li>
+                    <li class="divider"></li>
+                  <li><a href ng-click="settings.setSerialPort('none')">None</a></li>
+                </ul>
+              </div>
+              <span style="padding-left:10px" ng-if="settings.useOverlayInstances()"><a href ng-click="showEditOverlayInstancesModal()">Edit Instances</a></span>
+            </div>
           </div>
         </uib-tab>
       </uib-tabset>

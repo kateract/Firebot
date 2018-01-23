@@ -75,6 +75,7 @@
         "request-image-size": "^2.1.0",
         "robotjs": "^0.4.7",
         "roll": "^1.2.0",
+        "serialport": "^6.0.4",
         "ui-select": "^0.19.8",
         "underscore": "^1.8.3",
         "unzipper": "^0.8.11",
