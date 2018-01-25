@@ -439,7 +439,7 @@
             service.setBackupOnceADay = function(backupOnceADay) {
                 pushDataToFile('/settings/backupOnceADay', backupOnceADay === true);
             };
-
+            
             service.maxBackupCount = function() {
                 let maxBackupCount = getDataFromFile('/settings/maxBackupCount');
                 return maxBackupCount != null ? maxBackupCount : 25;
@@ -457,6 +457,11 @@
             service.setAudioOutputDevice = function(device) {
                 pushDataToFile('/settings/audioOutputDevice', device);
             };
+
+            service.getSerialPort = function() {
+                let port = getDataFromFile('/settings/serialPort');
+                return port != null ? port : { Name: "None", manufacturer: undefined};
+            }
 
             service.getSidebarControlledServices = function() {
                 let services = getDataFromFile('/settings/sidebarControlledServices');

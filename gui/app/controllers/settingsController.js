@@ -9,6 +9,7 @@
     const moment = require("moment");
     const unzipper = require("unzipper");
     const ncp = require("ncp");
+    const serialPort = require("serialport");
 
     angular
         .module('firebotApp')
@@ -51,6 +52,20 @@
 
                 $scope.audioOutputDevices = $scope.audioOutputDevices.concat(deviceList);
             });
+
+            $scope.serialPorts [{
+                Name:"None",
+                manufacturer: undefined
+            }]
+
+            $q.when(serialPort.list()).then(portList => {
+                portList = portList.map(p => {
+                    return { Name: d.comName, manufacturer: d.manufacturer};
+                });
+
+                $scope.serialPorts = $scope.serialPorts.concat(portList);
+            });
+
 
             listenerService.registerListener(
                 { type: listenerService.ListenerType.BACKUP_COMPLETE },
