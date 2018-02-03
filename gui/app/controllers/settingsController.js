@@ -53,14 +53,12 @@
                 $scope.audioOutputDevices = $scope.audioOutputDevices.concat(deviceList);
             });
 
-            $scope.serialPorts [{
-                Name:"None",
-                manufacturer: undefined
-            }]
+            $scope.serialPorts = [];
 
             $q.when(serialPort.list()).then(portList => {
+                console.log(portList);
                 portList = portList.map(p => {
-                    return { Name: d.comName, manufacturer: d.manufacturer};
+                    return { Name: p.comName, manufacturer: p.manufacturer};
                 });
 
                 $scope.serialPorts = $scope.serialPorts.concat(portList);

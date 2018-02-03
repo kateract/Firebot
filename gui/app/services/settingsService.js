@@ -463,6 +463,10 @@
                 return port != null ? port : { Name: "None", manufacturer: undefined};
             }
 
+            service.setSerialPort = function(port) {
+                pushDataToFile('/settings/serialPort', port);
+            }
+
             service.getSidebarControlledServices = function() {
                 let services = getDataFromFile('/settings/sidebarControlledServices');
                 return services != null ? services : ['interactive', 'chat', 'constellation'];
