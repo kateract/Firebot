@@ -174,7 +174,8 @@
                 INITIATE_BACKUP: "startBackup",
                 RESTART_APP: "restartApp",
                 DELETE_CHAT_MESSAGE: "deleteChatMessage",
-                CHANGE_USER_MOD_STATUS: "changeUserModStatus"
+                CHANGE_USER_MOD_STATUS: "changeUserModStatus",
+                SERIAL_PORT_UPDATE: "serialport:update"
             };
             service.EventType = EventType;
 

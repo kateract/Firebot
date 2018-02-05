@@ -465,6 +465,7 @@
 
             service.setSerialPort = function(port) {
                 pushDataToFile('/settings/serialPort', port);
+                listenerService.fireEvent(EventType.SERIAL_PORT_UPDATE, { newPort: port});
             }
 
             service.getSidebarControlledServices = function() {

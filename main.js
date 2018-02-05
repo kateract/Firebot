@@ -13,6 +13,7 @@ const backupManager = require("./lib/backupManager");
 const apiServer = require('./api/apiServer.js');
 
 const Effect = require('./lib/common/EffectType');
+const serialProcessor = require ('./lib/common/handlers/serialProcessor');
 
 // These are defined globally for Custom Scripts.
 // We will probably wnat to handle these differently but we shouldn't
@@ -192,6 +193,16 @@ async function createDefaultFoldersAndFiles() {
     }
 
     logger.info("Finished verifying default folders and files.");
+
+            
+    let serialPort = settings.getSerialPort();
+    logger.info(serialPort.Name + " detected in settings");
+    if (serialPort.Name != 'None') 
+    {
+        logger.info('Connecting to ' + serialPort.Name);
+        serialProcessor.setupPort(serialPort.Name);
+    }
+
 }
 
 
