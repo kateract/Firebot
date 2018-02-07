@@ -8,7 +8,7 @@
 
     angular
         .module('firebotApp')
-        .factory('settingsService', function (utilityService, logger) {
+        .factory('settingsService', function (utilityService, logger, listenerService) {
             let service = {};
 
             let settingsCache = {};

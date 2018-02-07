@@ -195,13 +195,13 @@ async function createDefaultFoldersAndFiles() {
     logger.info("Finished verifying default folders and files.");
 
             
-    let serialPort = settings.getSerialPort();
-    logger.info(serialPort.Name + " detected in settings");
-    if (serialPort.Name != 'None') 
-    {
-        logger.info('Connecting to ' + serialPort.Name);
-        serialProcessor.setupPort(serialPort.Name);
-    }
+    // let serialPort = settings.getSerialPort();
+    // logger.info(serialPort.Name + " detected in settings");
+    // if (serialPort.Name != 'None') 
+    // {
+    //     logger.info('Connecting to ' + serialPort.Name);
+    //     serialProcessor.setupPort(serialPort.Name);
+    // }
 
 }
 

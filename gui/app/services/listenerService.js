@@ -34,7 +34,8 @@
                 celebrate: {},
                 info: {},
                 backupComplete: {},
-                currentViewersUpdate: {}
+                currentViewersUpdate: {},
+                serialPortWrite: {}
             };
 
             let ListenerType = {
@@ -66,7 +67,8 @@
                 SHOW_HTML: "showHtml",
                 CELEBREATE: "celebrate",
                 INFO: "info",
-                BACKUP_COMPLETE: "backupComplete"
+                BACKUP_COMPLETE: "backupComplete",
+                SERIAL_PORT_WRITE: "serialPortWrite"
             };
 
             function runListener(listener, returnPayload) {
@@ -404,6 +406,12 @@
                     runListener(listener, data);
                 });
             });
+
+            ipcRenderer.on('serialport:write', function (event, data) {
+                _.forEach(registeredListeners.serialPortWrite, (listener) => {
+                    runListener(listener, data);
+                })
+            })
 
 
             /**
